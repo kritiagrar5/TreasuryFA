@@ -16,7 +16,7 @@
 				<ToolbarSpacer width="20px" />
               <Image
                 id="logo"
-                src="{imageModel>/path}/../images/logo.png"
+                src="{imageModel>/path}/images/FinSight.png" 
                 decorative="true"
                 class="logo"/>
         </tnt:ToolHeader>
