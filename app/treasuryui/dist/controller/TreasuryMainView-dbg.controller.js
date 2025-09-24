@@ -51,8 +51,7 @@ sap.ui.define([
       }
 
       const { jsPDF } = window.jspdf;
-      const userInput =
-        this.getView().getModel("chatModel").getProperty("/userMessage") || "";
+      const userInput = this.getView().getModel("chatModel").getProperty("/userMessage") || "";
 
       const domRef = this.byId("ChatBotResult")?.getDomRef();
       if (!domRef) {
@@ -95,24 +94,13 @@ sap.ui.define([
       userInputBox.appendChild(userInputText);
       wrapper.appendChild(userInputBox);
 
-      // --- Clone Chat Response (unwrap scroll children) ---
-      const responseClone = document.createElement("div");
-      responseClone.style.margin = "0";
-      responseClone.style.width = "100%";
-
-      const children = Array.from(domRef.children);
-      children.forEach((child) => {
-        const cloneChild = child.cloneNode(true);
-        // force expanded content
-        cloneChild.style.maxHeight = "none";
-        cloneChild.style.overflow = "visible";
-        responseClone.appendChild(cloneChild);
-      });
-
+      // --- Clone Chat Response ---
+      const responseClone = domRef.cloneNode(true);
+      responseClone.style.margin = "0"; // prevent extra spacing
       wrapper.appendChild(responseClone);
 
       // --- Wait for DOM to layout ---
-      await new Promise((resolve) => requestAnimationFrame(resolve));
+      await new Promise(resolve => requestAnimationFrame(resolve));
 
       try {
         const canvas = await html2canvas(wrapper, {
@@ -120,7 +108,7 @@ sap.ui.define([
           useCORS: true,
           scrollY: 0,
           windowWidth: wrapper.scrollWidth,
-          windowHeight: wrapper.scrollHeight,
+          height: wrapper.scrollHeight
         });
 
         const imgData = canvas.toDataURL("image/png");
@@ -146,6 +134,7 @@ sap.ui.define([
 
         pdf.save("Finsight_Chat_Export.pdf");
         sap.m.MessageToast.show("PDF exported successfully");
+
       } catch (err) {
         console.error("PDF export failed", err);
         sap.m.MessageToast.show("Failed to export PDF");
@@ -178,9 +167,14 @@ sap.ui.define([
     },
 
     onUserChat: async function () {
+      this.getView().byId("htmlContent").setVisible(false);
       const chatModel = this.getOwnerComponent().getModel("chatModel");
       const oView = this.getView();
       const sInput = this.byId("chatFeedInput").getValue();
+      // Disable submit + hide previous result
+      chatModel.setSubmit(false);
+      chatModel.setvisibleResult(false);
+      // chatModel.setResult('');
       var aSelectedItems = this.byId("multiCombo").getSelectedItems();
       const isIntellibase = sInput.toLowerCase().includes("intellibase");
       const keywords = ["SELECT", "INSERT", "UPDATE", "DELETE", "DROP", "UNION", "CREATE", "TRUNCATE"];
@@ -196,9 +190,11 @@ sap.ui.define([
         MessageBox.error("Please select a file or Ask Intellibase");
         return;
       }
-      // Disable submit + hide previous result
-      chatModel.setSubmit(false);
-      chatModel.setvisibleResult(false);
+
+      if(sInput.endsWith("Question: ") || sInput.endsWith(".pdf") || sInput.endsWith(".xlsx") || sInput.endsWith(".docx")){
+        MessageBox.warning("Enter a question before proceeding");
+        return;
+      }
       if (!sInput || sInput.length < 3) {
         MessageBox.information("Minimum 3 characters required to proceed");
         return;
@@ -219,6 +215,7 @@ sap.ui.define([
 
       await Promise.resolve();
       this.getView().byId("htmlContent").setVisible(true);
+      // this.getView().byId("htmlContent").setContent('');
       this.getView().byId("pdfContainer").setVisible(false);
 
       try {
@@ -226,8 +223,10 @@ sap.ui.define([
 
         chatModel.setResult(resp);
         chatModel.setvisibleResult(true);
+        // chatModel.refresh(true);
+        // this.getView().byId("htmlContent").setContent(resp);
         console.log(resp);
-        return resp;
+        // return resp;
       } catch (err) {
         console.error("Chat fetch error:", err);
         sap.m.MessageToast.show("Failed to get response.");
@@ -295,7 +294,7 @@ sap.ui.define([
         const isHTMlString = data.FINAL_RESULT === "string" && /<[^>]+>/.test(data.FINAL_RESULT);
         var finalres;
         if (!isHTMlString) {
-          finalres = `<p style="color:red;">${data.FINAL_RESULT}</p>` 
+          finalres = `<p style="color:red;">${data.FINAL_RESULT}</p>`
         }
         else
           finalres = data.FINAL_RESULT;
