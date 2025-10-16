@@ -744,3 +744,13 @@ body,
 .searchWrapper .sapUiSmallMarginEnd {
   margin-right: 0.75rem;
 }
+
+/* Ensure tables rendered as <pre> in FormattedText inherit SCProsperSans */
+.customFormatted pre {
+  font-family: SCProsperSans, Arial, Helvetica, sans-serif monospace!important;
+  font-size: 0.875rem;         /* keep it readable */
+  white-space: pre-wrap;       /* wrap lines nicely */
+  line-height: 1.4;            /* spacing for better table layout */
+  color: var(--scbTextColor);  /* inherits your theme text color */
+  letter-spacing: 0.2px;
+}

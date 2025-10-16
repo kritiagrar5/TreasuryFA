@@ -191,7 +191,7 @@ sap.ui.define([
         return;
       }
 
-      if(sInput.endsWith("Question: ") || sInput.endsWith(".pdf") || sInput.endsWith(".xlsx") || sInput.endsWith(".docx")){
+      if (sInput.endsWith("Question: ") || sInput.endsWith(".pdf") || sInput.endsWith(".xlsx") || sInput.endsWith(".docx")) {
         MessageBox.warning("Enter a question before proceeding");
         return;
       }
@@ -221,11 +221,50 @@ sap.ui.define([
       try {
         const resp = await this.onfetchData(sInput, isValid, isIntellibase);
 
-        chatModel.setResult(resp);
+        let sResponse = resp; // full HTML string
+        let sFinalHtml = sResponse;
+
+        // --- Case 1: If there's at least one <table> ---
+        if (/<table[\s\S]*?>[\s\S]*?<\/table>/i.test(sResponse)) {
+
+          // Replace all tables dynamically
+          sFinalHtml = sResponse.replace(/<table[\s\S]*?>[\s\S]*?<\/table>/gi, (match) => {
+            const tableHtml = match;
+
+            // Extract all <tr>...</tr>
+            const rows = [...tableHtml.matchAll(/<tr[\s\S]*?>([\s\S]*?)<\/tr>/gi)].map(m => m[1]);
+
+            // Extract cells for each row
+            const data = rows.map(row => {
+              const cells = [...row.matchAll(/<(td|th)[^>]*>([\s\S]*?)<\/\1>/gi)].map(m => m[2].trim());
+              return cells;
+            });
+
+            // Build text table
+            let sPre = "──────────────────────────────────────────────\n";
+            data.forEach((row, idx) => {
+              if (idx === 0) {
+                sPre += row.map(c => c.padEnd(20)).join(" | ") + "\n";
+                sPre += "──────────────────────────────────────────────\n";
+              } else {
+                sPre += row.map(c => c.padEnd(20)).join(" | ") + "\n";
+              }
+            });
+            sPre += "──────────────────────────────────────────────\n";
+
+            // Replace the HTML table with text table
+            return `<pre>${sPre}</pre>`;
+          });
+
+        } else {
+          sFinalHtml = sResponse
+        }
+
+        chatModel.setResult(sFinalHtml);
         chatModel.setvisibleResult(true);
         // chatModel.refresh(true);
         // this.getView().byId("htmlContent").setContent(resp);
-        console.log(resp);
+        console.log(sFinalHtml);
         // return resp;
       } catch (err) {
         console.error("Chat fetch error:", err);
