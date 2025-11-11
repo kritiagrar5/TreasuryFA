@@ -7,7 +7,7 @@ sap.ui.define([
         onPress: async function (oEvent) {
             const ctx = oEvent.getSource().getBindingContext();
             const fileName = ctx.getProperty("fileName");
-            const baseUrl = sap.ui.require.toUrl('com/scb/treasury/contentingestion');
+            const baseUrl = sap.ui.require.toUrl('com/scb/treasury/contentingestionfa');
             const contentUrl = baseUrl + "/odata/v4/catalog/Content";
             var url;
             const response = await fetch(baseUrl, {

@@ -17,7 +17,7 @@ sap.ui.define([
                 onClose: async (sAction) => {
                     if (sAction === MessageBox.Action.OK) {
                         BusyIndicator.show(0);
-                        const baseUrl = sap.ui.require.toUrl('com/scb/treasury/contentingestion');
+                        const baseUrl = sap.ui.require.toUrl('com/scb/treasury/contentingestionfa');
                         const thisUser = baseUrl + "/user-api/currentUser";
                         const contentUrl = baseUrl + "/odata/v4/catalog/Content/" + fileID;
                         const deleteUrl = baseUrl + "/odata/v4/catalog/Content/" + fileID + "/deleteContent";

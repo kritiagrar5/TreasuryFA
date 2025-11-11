@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: com.scb.treasury.contentrepository
+  name: com.scb.treasury.contentrepositoryfa
 type: application
 resources:
   configuration:
@@ -16,7 +16,7 @@ builder:
     - name: ui5-task-zipper
       afterTask: generateCachebusterInfo
       configuration:
-        archiveName: comscbtreasurycontentrepository
+        archiveName: comscbtreasurycontentrepositoryFA
         relativePaths: true
         additionalFiles:
           - xs-app.json

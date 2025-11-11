@@ -1,7 +1,7 @@
 {
   "_version": "1.65.0",
   "sap.app": {
-    "id": "com.scb.treasury.contentingestion",
+    "id": "com.scb.treasury.contentingestionfa",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -73,7 +73,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "com.scb.treasury.contentingestion.i18n.i18n"
+          "bundleName": "com.scb.treasury.contentingestionfa.i18n.i18n"
         }
       },
       "": {
@@ -127,7 +127,7 @@
                         "placement": "After"
                       },
                       "header": "Summary Files",
-                      "template": "com.scb.treasury.contentingestion.fragment.SummaryFiles",
+                      "template": "com.scb.treasury.contentingestionfa.fragment.SummaryFiles",
                       "visible": "{= ${tagType_code} !== 'QA' }"
                     }
                   }
@@ -143,7 +143,7 @@
                         "placement": "After"
                       },
                       "header": "Summary Files",
-                      "template": "com.scb.treasury.contentingestion.fragment.SummaryFiles",
+                      "template": "com.scb.treasury.contentingestionfa.fragment.SummaryFiles",
                       "visible": "{= ${tagType_code} !== 'QA' }"
                     }
                   }
@@ -156,7 +156,7 @@
                         "anchor": "DataField::isChecker",
                         "placement": "After"
                       },
-                      "template": "com.scb.treasury.contentingestion.ext.fragment.Metadata",
+                      "template": "com.scb.treasury.contentingestionfa.ext.fragment.Metadata",
                       "width": "5rem",
                       "horizontalAlign": "Center"
                     },
@@ -167,7 +167,7 @@
                         "anchor": "DataField::mediaType",
                         "placement": "Before"
                       },
-                      "template": "com.scb.treasury.contentingestion.ext.fragment.FileDownload",
+                      "template": "com.scb.treasury.contentingestionfa.ext.fragment.FileDownload",
                       "properties": [
                         "fileName"
                       ]
@@ -178,7 +178,7 @@
                         "anchor": "DataFieldForAction::CatalogService.deleteContent",
                         "placement": "After"
                       },
-                      "template": "com.scb.treasury.contentingestion.ext.fragment.Delete",
+                      "template": "com.scb.treasury.contentingestionfa.ext.fragment.Delete",
                       "width": "5rem",
                       "horizontalAlign": "Center"
                     }
@@ -190,7 +190,7 @@
               "content": {
                 "header": {
                   "customHeader": {
-                    "expandedHeaderFragment": "com.scb.treasury.contentingestion.fragment.CustomExpandedHeader",
+                    "expandedHeaderFragment": "com.scb.treasury.contentingestionfa.fragment.CustomExpandedHeader",
                     "visible": "{= ${/ActionVisibility/isMaker} }"
                   }
                 }
@@ -204,7 +204,7 @@
       "extensions": {
         "sap.ui.controllerExtensions": {
           "sap.fe.templates.ListReport.ListReportController": {
-            "controllerName": "com.scb.treasury.contentingestion.controller.CustomExpandedHeader"
+            "controllerName": "com.scb.treasury.contentingestionfa.controller.CustomExpandedHeader"
           }
         }
       }

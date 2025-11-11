@@ -16,7 +16,7 @@ sap.ui.define(
     "use strict";
 
     return ControllerExtension.extend(
-      "com.scb.treasury.contentingestion.controller.CustomExpandedHeader",
+      "com.scb.treasury.contentingestionfa.controller.CustomExpandedHeader",
       {
         override: {
           onInit() {
@@ -37,7 +37,7 @@ sap.ui.define(
          */
         onfetchRoles: async function (params) {
           //  const oComponent = this.getOwnerComponent();
-          const baseUrl = sap.ui.require.toUrl('com/scb/treasury/contentingestion');
+          const baseUrl = sap.ui.require.toUrl('com/scb/treasury/contentingestionfa');
           const url = baseUrl + "/user-api/currentUser";
 
           try {
@@ -150,7 +150,7 @@ sap.ui.define(
           if (!this._oDialog) {
             this._pDialog = Fragment.load({
               id: this.getView().getId() + "--myDialog",
-              name: "com.scb.treasury.contentingestion.fragment.MyDialog",
+              name: "com.scb.treasury.contentingestionfa.fragment.MyDialog",
               controller: this
             }).then(function (oDialog) {
               that._oDialog = oDialog;
@@ -173,7 +173,7 @@ sap.ui.define(
             BusyIndicator.show(0);
             const oFileUploader = this.base.byId("__fileUploader");
             const oFile = oFileUploader.getDomRef("fu").files[0];
-            const baseUrl = sap.ui.require.toUrl('com/scb/treasury/contentingestion');
+            const baseUrl = sap.ui.require.toUrl('com/scb/treasury/contentingestionfa');
 
             const chatUrl = baseUrl + "/api/upload";
             const contentUrl = baseUrl + "/odata/v4/catalog/Content";
@@ -320,7 +320,7 @@ sap.ui.define(
         _postInitialFileRecord: async function (aPayloads, oFile, fileHash) {
           try {
             const oModel = this.getView().getModel();
-            const putUrl = sap.ui.require.toUrl('com/scb/treasury/contentingestion') + "Content('" + fileHash + "')/content"
+            const putUrl = sap.ui.require.toUrl('com/scb/treasury/contentingestionfa') + "Content('" + fileHash + "')/content"
             const response = await service.createContent(
               this.base,
               { initialData: JSON.stringify(aPayloads) },
@@ -402,7 +402,7 @@ sap.ui.define(
           });
         },
         saveMetaData: function (csrf, json, fileName) {
-          const contentUrlmet = sap.ui.require.toUrl('com/scb/treasury/contentingestion') + "/odata/v4/catalog/MetaDataForFiles";
+          const contentUrlmet = sap.ui.require.toUrl('com/scb/treasury/contentingestionfa') + "/odata/v4/catalog/MetaDataForFiles";
           const response = fetch(contentUrlmet, {
             method: "POST",
             headers: {

@@ -3,7 +3,7 @@ sap.ui.define(
     function (Component) {
         "use strict";
 
-        return Component.extend("com.scb.treasury.contentingestion.Component", {
+        return Component.extend("com.scb.treasury.contentingestionfa.Component", {
             metadata: {
                 manifest: "json"
             }

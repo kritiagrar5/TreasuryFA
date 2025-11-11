@@ -65,7 +65,7 @@ sap.ui.define([
       };    
       const semanticHash = hashMapping[sapAppId] || "home";    
       const formattedUrl = `${url.origin}/site?siteId=${siteId}`;
-      const completeurl = formattedUrl+"#embedding-upload?sap-ui-app-id-hint=saas_approuter_com.scb.treasury.contentingestion";
+      const completeurl = formattedUrl+"#embedding-upload?sap-ui-app-id-hint=saas_approuter_com.scb.treasury.contentingestionfa";
       return completeurl;
     }  
     });

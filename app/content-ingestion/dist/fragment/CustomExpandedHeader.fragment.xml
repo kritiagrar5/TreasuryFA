@@ -22,9 +22,9 @@
                 maximumFileSize='20' 
                 fileType="pdf,docx,xlsx"
                 class="sapUiSmallMarginBottom" 
-                change = ".extension.com.scb.treasury.contentingestion.controller.CustomExpandedHeader.onFileChange"
-                typeMissmatch=".extension.com.scb.treasury.contentingestion.controller.CustomExpandedHeader.onTypeMismatch"
-                fileSizeExceed=".extension.com.scb.treasury.contentingestion.controller.CustomExpandedHeader.onSizeExceed"/>
+                change = ".extension.com.scb.treasury.contentingestionfa.controller.CustomExpandedHeader.onFileChange"
+                typeMissmatch=".extension.com.scb.treasury.contentingestionfa.controller.CustomExpandedHeader.onTypeMismatch"
+                fileSizeExceed=".extension.com.scb.treasury.contentingestionfa.controller.CustomExpandedHeader.onSizeExceed"/>
 
             <HBox alignItems="Center" class="sapUiSmallMarginBottom sapUiTinyMarginTop">
                 <Label text="To be used in:" class="sapUiSmallMarginEnd customLabel" visible="false"/>
@@ -48,7 +48,7 @@
             <Button 
                 id="__uploaderButton" 
                 text="Upload Attachment" 
-                press=".extension.com.scb.treasury.contentingestion.controller.CustomExpandedHeader.onUploadFile"
+                press=".extension.com.scb.treasury.contentingestionfa.controller.CustomExpandedHeader.onUploadFile"
                 type="Emphasized" 
                 class="customUploadButton" />
         </VBox>

@@ -8,7 +8,7 @@ sap.ui.define(['sap/fe/test/ListReport'], function(ListReport) {
 
     return new ListReport(
         {
-            appId: 'com.scb.treasury.contentingestion',
+            appId: 'com.scb.treasury.contentingestionfa',
             componentId: 'ContentList',
             contextPath: '/Content'
         },

@@ -8,7 +8,7 @@ sap.ui.define(['sap/fe/test/ObjectPage'], function(ObjectPage) {
 
     return new ObjectPage(
         {
-            appId: 'com.scb.treasury.contentingestion',
+            appId: 'com.scb.treasury.contentingestionfa',
             componentId: 'ContentObjectPage',
             contextPath: '/Content'
         },

@@ -42,7 +42,7 @@ sap.ui.define([
         if (!this._oDialog) {
           this._oDialog = await Fragment.load({
             id: this.editFlow.getView().getId(),
-            name: "com.scb.treasury.contentingestion.fragment.MyDialog",
+            name: "com.scb.treasury.contentingestionfa.fragment.MyDialog",
             controller: _customColumnController(this)
           });
           this.editFlow.getView().addDependent(this._oDialog);
