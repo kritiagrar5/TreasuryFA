@@ -45,7 +45,7 @@ sap.ui.define([
      
       _getStandaloneUrl: function () {
         const baseUrl = window.location.href.split("#")[0];
-        return baseUrl.replace(/(\/[^\/]+\.Treasury\.)[^.]+(-[\d.]+\/index\.html)/,
+        return baseUrl.replace(/(\/[^\/]+\.TreasuryFA\.)[^.]+(-[\d.]+\/index\.html)/,
                                "$1comscbtreasurycontentingestionfa$2");
          
       },

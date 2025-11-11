@@ -1,9 +1,9 @@
 sap.ui.require(
     [
         'sap/fe/test/JourneyRunner',
-        'com/scb/treasury/contentingestion/test/integration/FirstJourney',
-		'com/scb/treasury/contentingestion/test/integration/pages/ContentList',
-		'com/scb/treasury/contentingestion/test/integration/pages/ContentObjectPage'
+        'com/scb/treasury/contentingestionfa/test/integration/FirstJourney',
+		'com/scb/treasury/contentingestionfa/test/integration/pages/ContentList',
+		'com/scb/treasury/contentingestionfa/test/integration/pages/ContentObjectPage'
     ],
     function(JourneyRunner, opaJourney, ContentList, ContentObjectPage) {
         'use strict';

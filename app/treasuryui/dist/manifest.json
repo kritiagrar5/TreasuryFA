@@ -144,6 +144,7 @@
         "HomeView": {
           "id": "TreasuryMainView",
           "name": "TreasuryMainView"
+          
         },
         "ReportsView": {
           "id": "ReportsView",
