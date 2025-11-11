@@ -10,7 +10,7 @@ sap.ui.define([
 ], (Controller, MessageBox, PDFViewer, BusyDialog, MessageToast) => {
   "use strict";
 
-  return Controller.extend("treasuryui.controller.TreasuryMainView", {
+  return Controller.extend("treasuryuiFA.controller.TreasuryMainView", {
     onInit() {
       let oModel = new sap.ui.model.json.JSONModel();
       // this.getView().setModel(oModel);
@@ -371,7 +371,7 @@ sap.ui.define([
       this._callSummaryApi(oSelectedFile);
     },
     getBaseUrl: function () {
-      return sap.ui.require.toUrl('treasuryui');
+      return sap.ui.require.toUrl('treasuryuiFA');
     },
     fetchCsrfToken: async function () {
       let url = this.getBaseUrl();
@@ -398,7 +398,7 @@ sap.ui.define([
       // // Disable submit + hide previous result
       chatModel.setSubmit(false);
       chatModel.setvisibleResult(false);
-      // var url = sap.ui.require.toUrl('treasuryui') + "/user-api/currentUser";
+      // var url = sap.ui.require.toUrl('treasuryuiFA') + "/user-api/currentUser";
       try {
         const response = await fetch(chatUrl, {
           method: "POST",

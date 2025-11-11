@@ -32,9 +32,9 @@
     "crossNavigation": {
       "inbounds": {
         "Treasury": {
-          "semanticObject": "treasury",
+          "semanticObject": "treasuryFA",
           "action": "display",
-          "title": "Treasury",
+          "title": "TreasuryFA",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
@@ -76,7 +76,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "treasuryui.i18n.i18n"
+          "bundleName": "treasuryuiFA.i18n.i18n"
         }
       },
       "": {
@@ -110,9 +110,9 @@
         "transition": "slide",
         "type": "View",
         "viewType": "XML",
-        "path": "treasuryui.view",
+        "path": "treasuryuiFA.view",
         "async": true,
-        "viewPath": "treasuryui.view"
+        "viewPath": "treasuryuiFA.view"
       },
       "routes": [
         {
@@ -156,7 +156,7 @@
       }
     },
     "rootView": {
-      "viewName": "treasuryui.view.App",
+      "viewName": "treasuryuiFA.view.App",
       "type": "XML",
       "id": "App",
       "async": true
@@ -164,6 +164,6 @@
   },
   "sap.cloud": {
     "public": true,
-    "service": "Treasury"
+    "service": "TreasuryFA"
   }
 }

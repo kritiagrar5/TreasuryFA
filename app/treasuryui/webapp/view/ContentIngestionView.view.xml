@@ -6,7 +6,7 @@
     xmlns:unified="sap.ui.unified"
     xmlns:uxap="sap.uxap"
     xmlns:tnt="sap.tnt"
-    controllerName="treasuryui.controller.ContentIngestion"
+    controllerName="treasuryuiFA.controller.ContentIngestion"
 >
     <Page id="ContentIngestion" title="Content Ingestion">
         <content>

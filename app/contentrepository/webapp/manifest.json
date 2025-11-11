@@ -171,6 +171,6 @@
   },
   "sap.cloud": {
     "public": true,
-    "service": "Treasury"
+    "service": "TreasuryFA"
   }
 }

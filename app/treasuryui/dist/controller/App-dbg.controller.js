@@ -3,7 +3,7 @@ sap.ui.define([
 ], (BaseController) => {
   "use strict";
 
-  return BaseController.extend("treasuryui.controller.App", {
+  return BaseController.extend("treasuryuiFA.controller.App", {
       onInit() {
       },
       onAfterRendering(){

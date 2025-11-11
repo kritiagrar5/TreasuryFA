@@ -3,7 +3,7 @@ sap.ui.define([
 ], (Controller) => {
     "use strict";
 
-    return Controller.extend("treasuryui.controller.TreasuryMainView", {
+    return Controller.extend("treasuryuiFA.controller.TreasuryMainView", {
         onInit() {
         }
     });

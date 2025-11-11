@@ -6,7 +6,7 @@ sap.ui.define([
   ], function (Controller, MessageToast,Component) {
     "use strict";
  
-    return Controller.extend("treasuryui.controller.ContentIngestion", {
+    return Controller.extend("treasuryuiFA.controller.ContentIngestion", {
       onInit: function () {
  
    
@@ -46,7 +46,7 @@ sap.ui.define([
       _getStandaloneUrl: function () {
         const baseUrl = window.location.href.split("#")[0];
         return baseUrl.replace(/(\/[^\/]+\.Treasury\.)[^.]+(-[\d.]+\/index\.html)/,
-                               "$1comscbtreasurycontentingestion$2");
+                               "$1comscbtreasurycontentingestionfa$2");
          
       },
       _getFLPUrl:function() {

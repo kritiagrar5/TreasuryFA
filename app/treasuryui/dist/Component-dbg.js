@@ -1,11 +1,11 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
-    "treasuryui/model/models",
-    "treasuryui/model/chatModel"
+    "treasuryuiFA/model/models",
+    "treasuryuiFA/model/chatModel"
 ], (UIComponent, models, chatModel) => {
     "use strict";
 
-    return UIComponent.extend("treasuryui.Component", {
+    return UIComponent.extend("treasuryuiFA.Component", {
         metadata: {
             manifest: "json",
             interfaces: [

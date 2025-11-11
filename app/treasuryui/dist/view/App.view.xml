@@ -1,4 +1,4 @@
-<mvc:View controllerName="treasuryui.controller.App"
+<mvc:View controllerName="treasuryuiFA.controller.App"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
@@ -7,10 +7,10 @@
     xmlns:tnt="sap.tnt">
     <tnt:ToolPage id="toolPage">
         <tnt:header>
-            <core:Fragment fragmentName="treasuryui.fragment.FrameHeader" type="XML"/>
+            <core:Fragment fragmentName="treasuryuiFA.fragment.FrameHeader" type="XML"/>
         </tnt:header>
         <tnt:sideContent>
-            <core:Fragment fragmentName="treasuryui.fragment.FrameSideContent" type="XML"/>
+            <core:Fragment fragmentName="treasuryuiFA.fragment.FrameSideContent" type="XML"/>
         </tnt:sideContent>
         <tnt:mainContents>
             <App id="app"/>

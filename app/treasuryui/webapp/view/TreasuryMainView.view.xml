@@ -1,4 +1,4 @@
-<mvc:View xmlns:unified="sap.ui.unified" controllerName="treasuryui.controller.TreasuryMainView"
+<mvc:View xmlns:unified="sap.ui.unified" controllerName="treasuryuiFA.controller.TreasuryMainView"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
@@ -18,11 +18,11 @@
                 <core:Item key="{ID}" text="{fileName}" />
                 </MultiComboBox>
                 </HBox>
-                 <core:Fragment fragmentName="treasuryui.fragment.chatBox" type="XML"/>
+                 <core:Fragment fragmentName="treasuryuiFA.fragment.chatBox" type="XML"/>
             </FlexBox>
 
             <FlexBox id="resultFlexBox" class="ResultFlexBox" visible="{chatModel>/visibleResult}">
-                 <core:Fragment fragmentName="treasuryui.fragment.resultBox" type="XML"/>
+                 <core:Fragment fragmentName="treasuryuiFA.fragment.resultBox" type="XML"/>
             </FlexBox>
             
 </FlexBox>
